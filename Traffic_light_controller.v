@@ -47,7 +47,7 @@ parameter yellow = 3'b010;
 parameter green = 3'b001;
 
 
-always@(posedge clk or negedge rst)
+always@(posedge clk, negedge rst)
 begin
 if (rst==1)
 begin
@@ -55,18 +55,12 @@ state<=s0;
 next_state<=s0;
 count<=0;
 end
+
 else
 begin
-state<=next_state;
-end
-end
-
-
-always@(posedge clk)
-begin
-state<=next_state;
+state=next_state;
 case (state)
-	s0:if(count<9)   ///// due to else part execution in one extra clk cycle,the time for each signal exceeds by 10ns. so we count for 1 less clk cycle from the desire clk cycle
+	s0:if(count<9) //for 10 clock pulses  
 		begin
 		north_lights<=red;
 		east_lights<=red;
@@ -75,13 +69,13 @@ case (state)
 		count<=count+1;
 		next_state<=s0;
 		end
-		else          /// due to this else part execution in one extra cycle,the time for each signal exceeds by 10ns.
+		else         
 		begin
 		count<=0;
 		next_state<=s1;
 		end
 		
-	s1:if(count<4)      // to implement the counter for 5 sec, we have to slow down the clock to 1hz.
+	s1:if(count<4)//  for 5 clk pulses
 	   begin
 		north_lights<=yellow;
 		east_lights<=red;
@@ -96,7 +90,7 @@ case (state)
 		next_state<=s2;
 		end
 		
-	s2:if (count<29)
+	s2:if (count<29) // for 30 clk pulses
 	   begin
 		north_lights<=green;
 		east_lights<=red;
@@ -202,5 +196,6 @@ case (state)
 		end
 	default:next_state<=s0;
 	endcase
+end
 end
 endmodule
