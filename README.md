@@ -1,5 +1,5 @@
 
-# Verilog Traffic Light Controller
+# Four way Traffic Light Controller
 
 ## Overview
 
