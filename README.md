@@ -44,7 +44,9 @@ The Four way Traffic Light Controller is a digital hardware project which includ
 ## Simulation_Result
 
 Simulated Waveform:
-![image](https://github.com/875keshav/Four_way_Traffic_Light_Controller/assets/126338618/16c6cbe3-ab43-4057-b22a-a01dbcb03d46)
-![image](https://github.com/875keshav/Four_way_Traffic_Light_Controller/assets/126338618/9a1cc6e2-d5a2-4c0d-af1d-c8dcd4775875)
+![image](https://github.com/875keshav/Four_way_Traffic_Light_Controller/assets/126338618/57b5c7a8-a225-4d2a-b99b-b22bc73e371a)
+![image](https://github.com/875keshav/Four_way_Traffic_Light_Controller/assets/126338618/1c111858-bd1e-4328-9535-3f5e03c840d8)
+
 Schematic Diagram:
-![image](https://github.com/875keshav/Four_way_Traffic_Light_Controller/assets/126338618/dc829a0b-8fac-4d2b-82f4-cd4ef7e4703b)
+![image](https://github.com/875keshav/Four_way_Traffic_Light_Controller/assets/126338618/aa9605f5-6e97-4061-aa72-f3d5bad94945)
+
