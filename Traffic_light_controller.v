@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    06:25:02 05/10/2023 
+// Create Date:    06:25:02 09/12/2023 
 // Design Name: 
 // Module Name:    traffic_light_controller 
 // Project Name: 
@@ -47,7 +47,7 @@ parameter yellow = 3'b010;
 parameter green = 3'b001;
 
 
-always@(negedge rst, posedge clk)
+always@(posedge clk or negedge rst)
 begin
 if (rst==1)
 begin
@@ -55,12 +55,16 @@ state<=s0;
 next_state<=s0;
 count<=0;
 end
+else
+begin
+state<=next_state;
+end
 end
 
 
 always@(posedge clk)
 begin
-state=next_state;
+state<=next_state;
 case (state)
 	s0:if(count<9)   ///// due to else part execution in one extra clk cycle,the time for each signal exceeds by 10ns. so we count for 1 less clk cycle from the desire clk cycle
 		begin
@@ -71,13 +75,13 @@ case (state)
 		count<=count+1;
 		next_state<=s0;
 		end
-		else         /// due to this else part execution in one extra cycle,the time for each signal exceeds by 10ns.
+		else          /// due to this else part execution in one extra cycle,the time for each signal exceeds by 10ns.
 		begin
 		count<=0;
 		next_state<=s1;
 		end
 		
-	s1:if(count<4)
+	s1:if(count<4)      // to implement the counter for 5 sec, we have to slow down the clock to 1hz.
 	   begin
 		north_lights<=yellow;
 		east_lights<=red;
