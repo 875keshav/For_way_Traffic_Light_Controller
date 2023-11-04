@@ -17,7 +17,8 @@ The Four way Traffic Light Controller is a digital hardware project which includ
   
 ## Design
 ### Finite state machine of the four way traffic light controller
-![Uploading traffic (2) [MConverter.eu] (1).jpg…]()
+![Alt Text](https://drive.google.com/file/d/1v0WXy3l8fWEg0eke_XF6YO7KJVMAe3x1/view?usp=sharing)
+
 
 
 
